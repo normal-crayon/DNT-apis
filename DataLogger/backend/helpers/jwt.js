@@ -1,10 +1,13 @@
 const expjwt = require('express-jwt')
-const secret = require('../secrets.json')
+const config = require('../secrets.json')
+// const jwt = require('jsonwebtoken')
+
 const jwt = () =>{
-    return expjwt({ secret, algorithms: ['HS256']}).unless({
+    const { secret } = config
+    return expjwt({ secret : config.secrets, algorithms: ['HS256']}).unless({
         path: [
             // declare public routes here, which does not need auth
-            '/users/auth'
+            '/users/auth',
         ]
     });
 }
