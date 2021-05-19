@@ -8,6 +8,8 @@ const jwt = () =>{
         path: [
             // declare public routes here, which does not need auth
             '/users/auth',
+            '/test/post',
+            '/test/get'
         ]
     });
 }
